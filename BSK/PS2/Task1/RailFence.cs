@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BSK.PS2
+﻿namespace BSK.PS2
 {
     public class RailFence : Algorithm
     {

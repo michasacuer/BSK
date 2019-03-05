@@ -8,8 +8,8 @@ namespace BSK
         static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            RailFence railFence = new RailFence(5);
-            Console.WriteLine(railFence.Encrypt(input));
+            MatrixSwap matrixSwap = new MatrixSwap(5, 3, 4, 1, 5, 2);
+            Console.WriteLine(matrixSwap.Encrypt(input));
             Console.ReadKey();
         }
     }
