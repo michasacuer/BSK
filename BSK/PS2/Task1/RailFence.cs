@@ -12,25 +12,30 @@ namespace BSK.PS2
         {
             int charCounter = 0;
             int nCounter = 0;
+            bool backward = false;
             char[,] chars = new char[n, input.Length];
 
             //Zig-Zag pattern
-            int j = 0;
-            while(charCounter <= input.Length)
+            while(charCounter < input.Length - n)
             {
-                if (charCounter >= input.Length)
-                    break;
+                if(charCounter == 0)
+                    chars[0, 0] = input[charCounter];
 
-                chars[nCounter++, j++] = input[charCounter++];
-                if (nCounter == n)
-                    for (int i = nCounter; i >= 0; i--)
-                    {
-                        if (charCounter >= input.Length)
-                            break;
-                        if (nCounter == 0)
-                            break;
-                        chars[nCounter--, j++] = input[charCounter++];
-                    }
+                if (backward)
+                {
+                    for (int i = n-2; i >= 0; --i)
+                        if (charCounter < input.Length)
+                            chars[i, ++charCounter] = input[charCounter];
+                    backward = false;
+                }
+
+                if(!backward)
+                {
+                    for (int i = 1; i < n; i++)
+                        if(charCounter < input.Length)
+                            chars[i, ++charCounter] = input[charCounter];
+                    backward = true;
+                }
             }
 
             //Encryption
