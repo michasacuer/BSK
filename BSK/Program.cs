@@ -8,7 +8,7 @@ namespace BSK
         static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            RailFence railFence = new RailFence(3);
+            RailFence railFence = new RailFence(5);
             Console.WriteLine(railFence.Encrypt(input));
             Console.ReadKey();
         }
