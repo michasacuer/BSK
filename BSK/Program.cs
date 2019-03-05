@@ -1,4 +1,5 @@
 ﻿using System;
+using BSK.PS2;
 
 namespace BSK
 {
@@ -6,8 +7,9 @@ namespace BSK
     {
         static void Main(string[] args)
         {
-            string inputString = Console.ReadLine();
-            Console.WriteLine(inputString);
+            string input = Console.ReadLine();
+            RailFence railFence = new RailFence(3);
+            Console.WriteLine(railFence.Encrypt(input));
             Console.ReadKey();
         }
     }
