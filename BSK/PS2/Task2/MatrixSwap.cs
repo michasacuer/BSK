@@ -10,22 +10,20 @@
 
         public override string Encrypt(string input)
         {
-            int charCounter = 0;
-            char[,] chars = new char[d, d];
-
-            for (int i = 0; i < d; i++)
-                for (int j = 0; j < d; j++)
-                {
-                    if (charCounter >= input.Length)
-                        break;
-                    chars[i, j] = input[charCounter++];
-                }
-
             string result = string.Empty;
+
             for (int i = 0; i < d; i++)
-                for(int j = 0; j < key.Length; j++)
-                    if(chars[i, key[j] - 1] != 0)
-                        result += chars[i, key[j] - 1];
+            {
+                int stride = 0;
+                if (i >= 1)
+                    stride = i * key.Length - i;
+                for (int j = 0; j < key.Length; j++)
+                {
+                    if (key[j] - 1 + i + stride >= input.Length)
+                        continue;
+                    result += input[key[j] - 1 + i + stride];
+                }
+            }
 
             return result;
         }
