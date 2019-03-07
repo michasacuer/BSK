@@ -18,7 +18,7 @@
                 for (int j = 0; j < key.Length; j++)
                 {
                     if (key[j] - 1 + i + stride >= input.Length)
-                        continue;
+                        break;
                     result += input[key[j] - 1 + i + stride];
                 }
             }
