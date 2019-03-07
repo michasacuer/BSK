@@ -14,9 +14,7 @@
 
             for (int i = 0; i < d; i++)
             {
-                int stride = 0;
-                if (i >= 1)
-                    stride = i * key.Length - i;
+                int stride = i * key.Length - i;
                 for (int j = 0; j < key.Length; j++)
                 {
                     if (key[j] - 1 + i + stride >= input.Length)
