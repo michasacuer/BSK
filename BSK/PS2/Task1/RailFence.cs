@@ -1,4 +1,6 @@
-﻿namespace BSK.PS2
+﻿using System;
+
+namespace BSK.PS2
 {
     public class RailFence : Algorithm
     {
@@ -6,14 +8,32 @@
 
         public override string Encrypt(string input)
         {
+            char[,] chars = ZigZag(input);
+
+            //Encryption
+            string result = string.Empty;
+            foreach (char c in chars)
+                if (c != 0)
+                    result += c;
+            
+            return result;
+        }
+
+        public override string Decrypt(string input)
+        {
+            throw new NotImplementedException();
+        }
+
+        private char[,] ZigZag(string input)
+        {
             int charCounter = 0;
             bool isIncreasing = true;
             char[,] chars = new char[n, input.Length];
 
             //Zig-Zag pattern
-            while(charCounter < input.Length - 1)
+            while (charCounter < input.Length - 1)
             {
-                if(charCounter == 0)
+                if (charCounter == 0)
                     chars[0, 0] = input[charCounter];
 
                 if (!isIncreasing)
@@ -24,22 +44,16 @@
                     isIncreasing = true;
                 }
 
-                if(isIncreasing)
+                if (isIncreasing)
                 {
                     for (int i = 1; i < n; i++)
-                        if(charCounter + 1 < input.Length)
+                        if (charCounter + 1 < input.Length)
                             chars[i, ++charCounter] = input[charCounter];
                     isIncreasing = false;
                 }
             }
 
-            //Encryption
-            string result = string.Empty;
-            foreach (char c in chars)
-                if (c != 0)
-                    result += c;
-            
-            return result;
+            return chars;
         }
 
         private int n { get; set; }
