@@ -41,7 +41,7 @@
                     chars[i, j] = input[charCounter++];
                 }
 
-            for(int i = 0; i <  chars.GetLength(0); i++)
+            for(int i = 0; i <  chars.GetLength(0); i++)    
                 for(int j = 0; j < key.Length; j++)
                 {
                     if (chars[key[i] - 1, j] == 0)
