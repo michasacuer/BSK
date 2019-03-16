@@ -1,4 +1,4 @@
-﻿namespace BSK.PS2
+﻿    namespace BSK.PS2
 {
     public class MatrixSwap : Algorithm
     {
@@ -22,6 +22,32 @@
                     result += input[key[j] - 1 + i + stride];
                 }
             }
+
+            return result;
+        }
+
+        public override string Decrypt(string input)
+        {
+            string result = string.Empty;
+            int charCounter = 0;
+
+            char[,] chars = new char[d, key.Length];
+
+            for(int i = 0; i < chars.GetLength(0); i++)
+                for(int j = 0; j < chars.GetLength(1); j++)
+                {
+                    if (charCounter >= input.Length)
+                        break;
+                    chars[i, j] = input[charCounter++];
+                }
+
+            for(int i = 0; i <  chars.GetLength(0); i++)
+                for(int j = 0; j < key.Length; j++)
+                {
+                    if (chars[key[i] - 1, j] == 0)
+                        continue;
+                    result += chars[key[i] - 1, j]; 
+                }
 
             return result;
         }

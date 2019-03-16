@@ -8,8 +8,8 @@ namespace BSK
         static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            Vigenere vigenere = new Vigenere("break");
-            Console.WriteLine(vigenere.Encrypt(input));
+            MatrixSwap railFence = new MatrixSwap(4, 3, 1, 4, 2);
+            Console.WriteLine(railFence.Decrypt(input));
             Console.ReadKey();
         }
     }
