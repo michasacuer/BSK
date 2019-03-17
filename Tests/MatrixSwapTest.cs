@@ -9,7 +9,7 @@ namespace Tests
         [Fact]
         public void IsEncryptionWorks()
         {
-            string check = "YCPRGTROHAYPAOS";
+            string check = "YCPRGTROHAYPAO S";
             string input = "CRYPTOGRAPHYOSA";
             Assert.Equal(check, matrixSwap.Encrypt(input));
         }
@@ -18,10 +18,18 @@ namespace Tests
         public void IsDecryptionWorks()
         {
             string check = "CRYPTOGRAPHYOSA";
-            string input = "YCPRGTROHAYPAOS";
+            string input = "YCPRGTROHAYPAO S";
             Assert.Equal(check, matrixSwap.Decrypt(input));
         }
-    
+
+        [Fact]
+        public void IsSystemWorks()
+        {
+            string input = "SUPERANCKIEZAJECIA";
+            string encrypted = matrixSwap.Encrypt(input);
+            Assert.Equal(input, matrixSwap.Decrypt(encrypted));
+        }
+
         private MatrixSwap matrixSwap = new MatrixSwap(4, 3, 1, 4, 2);
     }
 }

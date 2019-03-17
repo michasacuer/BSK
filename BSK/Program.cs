@@ -9,7 +9,9 @@ namespace BSK
         {
             string input = Console.ReadLine();
             MatrixSwap railFence = new MatrixSwap(4, 3, 1, 4, 2);
-            Console.WriteLine(railFence.Decrypt(input));
+            string encrypted = railFence.Encrypt(input);
+            Console.WriteLine(encrypted);
+            Console.WriteLine(railFence.Decrypt(encrypted));
             Console.ReadKey();
         }
     }
