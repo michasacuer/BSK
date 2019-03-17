@@ -28,7 +28,6 @@
             bool isIncreasing = true;
             char[,] chars = new char[n, input.Length];
 
-            //Zig-Zag pattern
             while (charCounter < input.Length - 1)
             {
                 if (charCounter == 0)

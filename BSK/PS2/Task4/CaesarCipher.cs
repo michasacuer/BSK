@@ -10,5 +10,10 @@ namespace BSK.PS2
         {
             throw new NotImplementedException();
         }
+
+        public override string Decrypt(string input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

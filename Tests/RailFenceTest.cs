@@ -1,4 +1,3 @@
-using System;
 using BSK.PS2;
 using Xunit;
 

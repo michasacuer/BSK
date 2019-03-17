@@ -27,7 +27,6 @@
             }
             return result;
         }
-        
 
         public override string Decrypt(string input)
         {
@@ -48,7 +47,6 @@
                 for(int j = key.Length - 1; j >= 0; j--)       
                     if(chars[i, key[j] - 1] != 0)
                         result += chars[i, key[j] - 1]; 
-                
 
             return result.Replace(" ", string.Empty);
         }
