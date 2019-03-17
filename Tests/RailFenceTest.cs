@@ -11,8 +11,6 @@ namespace Tests
         {
             string check = "CTARPORPYYGH";
             string input = "CRYPTOGRAPHY";
-
-            RailFence railFence = new RailFence(3);
             Assert.Equal(check, railFence.Encrypt(input));
         }
 
@@ -21,8 +19,17 @@ namespace Tests
         {
             string check = "CRYPTOGRAPHY";
             string input = "CTARPORPYYGH";
-            RailFence railFence = new RailFence(3);
             Assert.Equal(check, railFence.Decrypt(input));
         }
+
+        [Fact]
+        public void IsSystemWorks()
+        {
+            string input = "SUPERANCKIEZAJECIA";
+            string encrypted = railFence.Encrypt(input);
+            Assert.Equal(input, railFence.Decrypt(encrypted));
+        }
+
+        private RailFence railFence = new RailFence(3);
     }
 }

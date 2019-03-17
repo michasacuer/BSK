@@ -18,7 +18,7 @@
                 for (int j = 0; j < key.Length; j++)
                 {
                     if (key[j] - 1 + i + stride >= input.Length)
-                        break;
+                        continue;
                     result += input[key[j] - 1 + i + stride];
                 }
             }
@@ -40,13 +40,13 @@
                         break;
                     chars[i, j] = input[charCounter++];
                 }
-
+            
             for(int i = 0; i <  chars.GetLength(0); i++)    
-                for(int j = 0; j < key.Length; j++)
+                for(int j = key.Length - 1; j >= 0; j--)
                 {
-                    if (chars[key[i] - 1, j] == 0)
+                    if (chars[i, key[j] - 1] == 0)
                         continue;
-                    result += chars[key[i] - 1, j]; 
+                    result += chars[i, key[j] - 1]; 
                 }
 
             return result;
