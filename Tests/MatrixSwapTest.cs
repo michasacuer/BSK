@@ -5,7 +5,6 @@ namespace Tests
 {
     public class MatrixSwapTest
     {
-
         [Fact]
         public void IsEncryptionWorks()
         {
@@ -30,6 +29,6 @@ namespace Tests
             Assert.Equal(input, matrixSwap.Decrypt(encrypted));
         }
 
-        private MatrixSwap matrixSwap = new MatrixSwap(4, 3, 1, 4, 2);
+        private MatrixSwap matrixSwap = new MatrixSwap(5, 3, 4, 1, 5, 2);
     }
 }

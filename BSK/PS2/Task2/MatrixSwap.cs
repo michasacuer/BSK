@@ -28,6 +28,11 @@
             return result;
         }
 
+        public override string Decrypt(string input, string key)
+        {
+            return base.Decrypt(input, key);
+        }
+
         public override string Decrypt(string input)
         {
             string result = string.Empty;
