@@ -18,5 +18,6 @@ namespace BSK.PS2
         private int k1 { get; set; }
         private int k0 { get; set; }
         private const int phi = 12;
+
     }
 }
