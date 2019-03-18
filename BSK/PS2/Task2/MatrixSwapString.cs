@@ -9,7 +9,7 @@ namespace BSK.PS2
     {
         public MatrixSwapString(string key)
         {
-            string alphabet = Alphabet.GetAlphabet();
+            string alphabet = Alphabet.GetAsString();
             key = key.ToUpper();
 
             for (int i = 0; i < alphabet.Length; i++)
@@ -25,7 +25,7 @@ namespace BSK.PS2
         public string Encrypt(string input)
         {
             string result = string.Empty;
-            int condition = (int)Math.Ceiling((double)input.Length / key.Length) * key.Length;
+            int maxResultLength = (int)Math.Ceiling((double)input.Length / key.Length) * key.Length;
 
             for (int i = 0; i < key.Length; i++)
             {
@@ -34,7 +34,7 @@ namespace BSK.PS2
                     int stride = j * key.Length;
                     if (mappedKey[i] + stride >= input.Length)
                     {
-                        if (mappedKey[i] + stride > input.Length && mappedKey[i] + stride <= condition)
+                        if (mappedKey[i] + stride < maxResultLength)
                             result += " ";
                         break;
                     }
@@ -50,7 +50,23 @@ namespace BSK.PS2
 
         public string Decrypt(string input)
         {
-            throw new NotImplementedException();
+            string result = string.Empty;
+            int columnHeight = (int)Math.Ceiling((double)input.Length / key.Length);
+
+            char[,] chars = new char[key.Length, columnHeight];
+
+            int charCounter = 0;
+            for(int i = 0; i < chars.GetLength(0); i++)
+                for(int j = 0; j < chars.GetLength(1); j++)
+                    chars[i, j] = input[charCounter++];
+
+            for(int i = 0; i < chars.GetLength(0); i++)
+                for(int j = 0; j < chars.GetLength(1); j++)
+                {
+                    result += chars[i, j];
+                }
+
+            return result;
         }
 
         private string key { get; set; }

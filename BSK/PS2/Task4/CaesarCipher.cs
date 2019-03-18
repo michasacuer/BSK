@@ -16,7 +16,7 @@ namespace BSK.PS2
         public string Decrypt(string input)
             => string.Concat(input.Select(c => (char)chars[(int)((c + (26 - k0)) * Math.Pow(k1, phi - 1) % 26)]));
 
-        private Dictionary<int, int> chars { get; } = Alphabet.GetDictionary();
+        private Dictionary<int, int> chars { get; } = Alphabet.GetAsDictionary();
         private int k1 { get; set; }
         private int k0 { get; set; }
         private const int phi = 12;

@@ -42,6 +42,6 @@ namespace BSK.PS2
         }
 
         private string key { get; set; }
-        private Dictionary<int, int> chars { get; } = Alphabet.GetDictionary();
+        private Dictionary<int, int> chars { get; } = Alphabet.GetAsDictionary();
     }
 }
