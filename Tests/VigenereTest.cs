@@ -3,7 +3,7 @@ using BSK.PS2;
 
 namespace Tests
 {
-    public class VigenereTests
+    public class VigenereTest
     {
         [Fact]
         public void IsSystemWork()

@@ -7,13 +7,6 @@ namespace BSK
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine();
-            CaesarCipher matrixSwap = new CaesarCipher();
-            string encrypted = matrixSwap.Encrypt("CRYPTOGRAPHY");
-            Console.WriteLine(encrypted);
-            Console.WriteLine(matrixSwap.Decrypt(encrypted));
-
-            Console.ReadKey();
         }
     }
 }
