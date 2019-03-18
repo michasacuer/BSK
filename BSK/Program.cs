@@ -8,8 +8,8 @@ namespace BSK
         static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            MatrixSwapInt matrixSwap = new MatrixSwapInt(5, 3, 4, 1, 5, 2);
-            string encrypted = matrixSwap.Encrypt("CRYPTOGRAPHYOSA");
+            CaesarCipher matrixSwap = new CaesarCipher();
+            string encrypted = matrixSwap.Encrypt("CRYPTOGRAPHY");
             Console.WriteLine(encrypted);
             Console.WriteLine(matrixSwap.Decrypt(encrypted));
 

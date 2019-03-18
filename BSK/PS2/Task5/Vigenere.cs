@@ -4,11 +4,7 @@ namespace BSK.PS2
 {
     public class Vigenere : Algorithm
     {
-        public Vigenere(string key)
-        {
-            this.key = key.ToUpper();
-            chars = Alphabet.GetDictionary();
-        }
+        public Vigenere(string key) { this.key = key.ToUpper(); }
 
         public override string Encrypt(string input)
         {
@@ -46,6 +42,6 @@ namespace BSK.PS2
         }
 
         private string key { get; set; }
-        private Dictionary<int, int> chars { get; set; }
+        private Dictionary<int, int> chars { get; } = Alphabet.GetDictionary();
     }
 }

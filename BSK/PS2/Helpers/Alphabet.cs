@@ -13,6 +13,7 @@ namespace BSK.PS2
             int i = 0;
             foreach (char c in alphabet)
                 dict.Add(i++, asciiValues[i - 1]);
+
             return dict;
         }
 
