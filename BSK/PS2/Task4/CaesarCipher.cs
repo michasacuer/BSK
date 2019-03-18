@@ -15,5 +15,9 @@ namespace BSK.PS2
         {
             throw new NotImplementedException();
         }
+
+        private static string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private byte[] asciiValues = Encoding.ASCII.GetBytes(alphabet);
+        private Dictionary<int, int> chars = new Dictionary<int, int>();
     }
 }

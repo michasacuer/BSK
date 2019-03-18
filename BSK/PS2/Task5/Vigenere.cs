@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 
 namespace BSK.PS2
 {
@@ -7,10 +6,8 @@ namespace BSK.PS2
     {
         public Vigenere(string key)
         {
-            int i = 0;
             this.key = key.ToUpper();
-            foreach (char c in alphabet)
-                chars.Add(i++, asciiValues[i-1]);
+            chars = Alphabet.GetDictionary();
         }
 
         public override string Encrypt(string input)
@@ -49,8 +46,6 @@ namespace BSK.PS2
         }
 
         private string key { get; set; }
-        private static string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        private byte[] asciiValues = Encoding.ASCII.GetBytes(alphabet);
-        private Dictionary<int, int> chars = new Dictionary<int, int>();
+        private Dictionary<int, int> chars { get; set; }
     }
 }
