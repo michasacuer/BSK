@@ -1,10 +1,10 @@
 ﻿namespace BSK.PS2
 {
-    public class RailFence : Algorithm
+    public class RailFence : IAlgorithm
     {
         public RailFence(int n) { this.n = n; }
 
-        public override string Encrypt(string input)
+        public string Encrypt(string input)
         {
             // makes ZigZag pattern based on "n" and input
             char[,] chars = ZigZagFromString(input);
@@ -17,7 +17,7 @@
             return result;
         }
     
-        public override string Decrypt(string input)
+        public string Decrypt(string input)
         {
             // makes ZigZag pattern based on "n" and input
             char[,] chars = ZigZagFromString(input);

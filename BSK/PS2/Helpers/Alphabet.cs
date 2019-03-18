@@ -11,6 +11,8 @@ namespace BSK.PS2
         /// <returns>Keys from 0 to 25 and related Values are from ASCII table</returns>
         public static Dictionary<int, int> GetDictionary() => chars;
 
+        public static string GetAlphabet() => alphabet;
+
         /// <summary>
         /// Converts alphabet to ASCII values and map it to dictionary
         /// </summary>

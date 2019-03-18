@@ -1,6 +1,6 @@
 ﻿    namespace BSK.PS2
 {
-    public class MatrixSwapInt : Algorithm
+    public class MatrixSwapInt : IAlgorithm
     {
         public MatrixSwapInt(int d, params int[] key)
         {
@@ -8,7 +8,7 @@
             this.key = key;
         }
 
-        public override string Encrypt(string input)
+        public string Encrypt(string input)
         {
             string result = string.Empty;
 
@@ -28,7 +28,7 @@
             return result;
         }
 
-        public override string Decrypt(string input)
+        public string Decrypt(string input)
         {
             string result = string.Empty;
             int charCounter = 0;

@@ -2,11 +2,11 @@
 
 namespace BSK.PS2
 {
-    public class Vigenere : Algorithm
+    public class Vigenere : IAlgorithm
     {
         public Vigenere(string key) { this.key = key.ToUpper(); }
 
-        public override string Encrypt(string input)
+        public string Encrypt(string input)
         {
             input = input.ToUpper();
             string newKey = GenerateNewKey(input.Length);
@@ -18,7 +18,7 @@ namespace BSK.PS2
             return result;
         }
 
-        public override string Decrypt(string input)
+        public string Decrypt(string input)
         {
             input = input.ToUpper();
             string newKey = GenerateNewKey(input.Length);
