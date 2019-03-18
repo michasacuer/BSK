@@ -29,6 +29,6 @@ namespace Tests
             Assert.Equal(input, matrixSwap.Decrypt(encrypted));
         }
 
-        private MatrixSwap matrixSwap = new MatrixSwap(5, 3, 4, 1, 5, 2);
+        private MatrixSwapInt matrixSwap = new MatrixSwapInt(5, 3, 4, 1, 5, 2);
     }
 }
