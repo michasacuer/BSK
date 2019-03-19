@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BSK.PS2
 {
-    public class MatrixSwapString : IAlgorithm
+    public class MatrixSwapString2b : IAlgorithm
     {
         public MatrixSwapString(string key)
         {
@@ -73,7 +73,6 @@ namespace BSK.PS2
                     result += decryptChars[j, i];
 
             return result;
-            
         }
 
         private string key { get; set; }

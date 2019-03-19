@@ -7,7 +7,7 @@ namespace BSK
     {
         static void Main(string[] args)
         {
-            MatrixSwapString matrixSwap = new MatrixSwapString("ROWERJESTSPOKO");
+            MatrixSwapString2b matrixSwap = new MatrixSwapString2b("ROWERJESTSPOKO");
             string e = matrixSwap.Encrypt("NAM STRZELAC NIE KAZANO WSTAPILEM NA DZIALO TYSIAC ARMAT GRZMIALO I BYLO FAJNIE");
             Console.WriteLine(e);
             Console.WriteLine(matrixSwap.Decrypt(e));

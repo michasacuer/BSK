@@ -38,6 +38,6 @@ namespace Tests
         }
 
         private MatrixSwapInt matrixSwap = new MatrixSwapInt(4, 3, 1, 4, 2);
-        private MatrixSwapString matrixSwapString = new MatrixSwapString("ROWER");
+        private MatrixSwapString2b matrixSwapString = new MatrixSwapString2b("ROWER");
     }
 }
