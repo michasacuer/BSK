@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace BSK.PS2
@@ -43,7 +42,6 @@ namespace BSK.PS2
                     }
                     else
                         result += input[mappedKey[i] + stride];
-
                 }
                 if (result.Length >= input.Length)
                     break;
