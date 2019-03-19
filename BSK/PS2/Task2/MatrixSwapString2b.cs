@@ -8,7 +8,6 @@ namespace BSK.PS2
     {
         public MatrixSwapString2b(string key)
         {
-            string alphabet = Alphabet.GetAsString();
             key = key.ToUpper();
 
             for (int i = 0; i < alphabet.Length; i++)
@@ -27,7 +26,6 @@ namespace BSK.PS2
             string result = string.Empty;
             int maxResultLength = (int)Math.Ceiling((double)input.Length / key.Length) * key.Length;
             int columnHeight = (int)Math.Ceiling((double)input.Length / key.Length);
-            char[,] chars = new char[key.Length, columnHeight];
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -77,5 +75,6 @@ namespace BSK.PS2
 
         private string key { get; set; }
         private Dictionary<int, int> mappedKey = new Dictionary<int, int>();
+        private readonly string alphabet = Alphabet.GetAsString();
     }
 }
