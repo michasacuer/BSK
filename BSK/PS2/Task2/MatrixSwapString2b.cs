@@ -6,7 +6,7 @@ namespace BSK.PS2
 {
     public class MatrixSwapString2b : IAlgorithm
     {
-        public MatrixSwapString(string key)
+        public MatrixSwapString2b(string key)
         {
             string alphabet = Alphabet.GetAsString();
             key = key.ToUpper();
