@@ -23,7 +23,7 @@ namespace BSK.PS2
 
         public string Encrypt(string input)
         {
-            input = input.ToUpper();
+            input = input.Replace(" ", string.Empty).ToUpper();
             string result = string.Empty;
             char[,] chars = new char[key.Length, key.Length];
 
@@ -31,13 +31,10 @@ namespace BSK.PS2
             for(int i = 0; i < key.Length; i++)
             {
                 int stride = mappedKey[i] + 1;
-                for (int j = 0; j < stride; j++)
-                {
-                    if (charCounter < input.Length)
+                for (int j = 0; j < key.Length; j++)
+                    if (charCounter < input.Length && j < stride)
                         chars[i, j] = input[charCounter++];
-                    else
-                        break;
-                }
+
             }
 
             for (int i = 0; i < chars.GetLength(1); i++)
@@ -45,8 +42,7 @@ namespace BSK.PS2
                 {
                     if (chars[j, mappedKey[i]] != 0)
                         result += chars[j, mappedKey[i]];
-
-                    if (j == chars.GetLength(0) - 1)
+                    else
                         result += " ";
                 }
 
