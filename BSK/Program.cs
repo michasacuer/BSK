@@ -8,7 +8,9 @@ namespace BSK
         static void Main(string[] args)
         {
             MatrixSwapString2c matrixSwap = new MatrixSwapString2c("CONVENIENCE");
-            Console.WriteLine(matrixSwap.Encrypt("HEREISASECRETMESSAGEENCIPHEREDBYTRANSPOSITION"));
+            string encrypted = matrixSwap.Encrypt("HEREISASECRETMESSAGEENCIPHEREDBYTRANSPOSITION");
+            Console.WriteLine(encrypted);
+            Console.WriteLine(matrixSwap.Decrypt(encrypted));
 
             Console.ReadKey();
         }

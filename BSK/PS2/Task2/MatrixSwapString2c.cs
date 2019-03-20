@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BSK.PS2
@@ -51,7 +52,27 @@ namespace BSK.PS2
 
         public string Decrypt(string input)
         {
-            throw new NotImplementedException();
+            input = input.ToUpper();
+            string result = string.Empty;
+            char[,] chars = new char[key.Length, key.Length];
+            char[,] decryptChars = new char[key.Length, key.Length];
+            var reversedDict = mappedKey.ToDictionary(a => a.Value, a => a.Key);
+
+            int charCounter = 0;
+            for (int i = 0; i < chars.GetLength(0); i++)
+                for (int j = 0; j < chars.GetLength(1); j++)
+                    if(charCounter < input.Length)
+                        chars[i, j] = input[charCounter++];
+            
+            for (int i = 0; i < chars.GetLength(0); i++)
+                for (int j = 0; j < chars.GetLength(1); j++)
+                    decryptChars[i, j] = chars[reversedDict[i], j];
+
+            for (int i = 0; i < chars.GetLength(1); i++)
+                for (int j = 0; j < chars.GetLength(0); j++)
+                    result += decryptChars[j, i];
+
+            return result.Replace(" ", string.Empty);
         }
 
         private string key { get; set; }
