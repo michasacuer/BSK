@@ -1,24 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BSK.PS2
 {
-    public class MatrixSwapString2b : IAlgorithm
+    public class MatrixSwapString2b : MatrixSwapString, IAlgorithm
     {
-        public MatrixSwapString2b(string key)
-        {
-            key = key.ToUpper();
-
-            for (int i = 0; i < alphabet.Length; i++)
-                for(int j = 0; j < key.Length; j++)
-                {
-                    if (alphabet[i] == key[j])
-                        mappedKey.Add(mappedKey.Count, j);
-                }
-
-            this.key = key;
-        }
+        public MatrixSwapString2b(string key) : base(key) { }
 
         public string Encrypt(string input)
         {
@@ -60,7 +47,8 @@ namespace BSK.PS2
             int charCounter = 0;
             for (int i = 0; i < chars.GetLength(0); i++)
                 for (int j = 0; j < chars.GetLength(1); j++)
-                    chars[i, j] = input[charCounter++];
+                    if (charCounter < input.Length)
+                        chars[i, j] = input[charCounter++];
             
             for (int i = 0; i < chars.GetLength(0); i++)
                 for (int j = 0; j < chars.GetLength(1); j++)
@@ -72,9 +60,5 @@ namespace BSK.PS2
 
             return result;
         }
-
-        private string key { get; set; }
-        private Dictionary<int, int> mappedKey = new Dictionary<int, int>();
-        private readonly string alphabet = Alphabet.GetAsString();
     }
 }
