@@ -1,4 +1,6 @@
-﻿    namespace BSK.PS2
+﻿using System.Text;
+
+namespace BSK.PS2
 {
     public class MatrixSwapInt : IAlgorithm
     {
@@ -10,27 +12,26 @@
 
         public string Encrypt(string input)
         {
-            string result = string.Empty;
-
+            StringBuilder result = new StringBuilder();
             for (int i = 0; i < input.Length; i++)
             {
                 int stride = i * key.Length - i;
                 for (int j = 0; j < key.Length; j++)
                 {
                     if (key[j] - 1 + i + stride >= input.Length)
-                        result += " ";
+                        result.Append(" ");
                     else
-                        result += input[key[j] - 1 + i + stride];
+                        result.Append(input[key[j] - 1 + i + stride]);
                 }
                 if (result.Length >= input.Length)
                     break;
             }
-            return result;
+            return result.ToString();
         }
 
         public string Decrypt(string input)
         {
-            string result = string.Empty;
+            StringBuilder result = new StringBuilder();
             int charCounter = 0;
 
             char[,] chars = new char[input.Length, key.Length];
@@ -46,9 +47,9 @@
             for(int i = 0; i <  chars.GetLength(0); i++)    
                 for(int j = key.Length - 1; j >= 0; j--)       
                     if(chars[i, key[j] - 1] != 0)
-                        result += chars[i, key[j] - 1]; 
+                        result.Append(chars[i, key[j] - 1]); 
 
-            return result.Replace(" ", string.Empty);
+            return result.ToString().Replace(" ", string.Empty);
         }
 
         private int d { get; set; }
