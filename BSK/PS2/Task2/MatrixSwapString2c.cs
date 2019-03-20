@@ -17,9 +17,12 @@ namespace BSK.PS2
             {
                 int stride = mappedKey[i] + 1;
                 for (int j = 0; j < key.Length; j++)
+                {
                     if (charCounter < input.Length && j < stride)
                         chars[i, j] = input[charCounter++];
-
+                    else
+                        break;
+                }
             }
 
             for (int i = 0; i < chars.GetLength(1); i++)

@@ -91,7 +91,6 @@
         private char[,] MapCharsToZigZag(char[,] chars, string input)
         {
             int charCounter = 0;
-
             for (int i = 0; i < chars.GetLength(0); i++)
                 for (int j = 0; j < chars.GetLength(1); j++)
                 {
