@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text;
 
 namespace BSK.PS2
 {
@@ -9,7 +10,7 @@ namespace BSK.PS2
         public string Encrypt(string input)
         {
             input = input.Replace(" ", string.Empty).ToUpper();
-            string result = string.Empty;
+            StringBuilder result = new StringBuilder();
             char[,] chars = new char[key.Length, key.Length];
 
             int charCounter = 0;
@@ -29,18 +30,18 @@ namespace BSK.PS2
                 for (int j = 0; j < chars.GetLength(0); j++)
                 {
                     if (chars[j, mappedKey[i]] != 0)
-                        result += chars[j, mappedKey[i]];
+                        result.Append(chars[j, mappedKey[i]]);
                     else
-                        result += " ";
+                        result.Append(" ");
                 }
 
-            return result;
+            return result.ToString();
         }
 
         public string Decrypt(string input)
         {
             input = input.ToUpper();
-            string result = string.Empty;
+            StringBuilder result = new StringBuilder();
             char[,] chars = new char[key.Length, key.Length];
             char[,] decryptChars = new char[key.Length, key.Length];
             var reversedDict = mappedKey.ToDictionary(a => a.Value, a => a.Key);
@@ -57,9 +58,9 @@ namespace BSK.PS2
 
             for (int i = 0; i < chars.GetLength(1); i++)
                 for (int j = 0; j < chars.GetLength(0); j++)
-                    result += decryptChars[j, i];
+                    result.Append(decryptChars[j, i]);
 
-            return result.Replace(" ", string.Empty);
+            return result.ToString().Replace(" ", string.Empty);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 
 namespace BSK.PS2
 {
@@ -10,7 +11,7 @@ namespace BSK.PS2
         public string Encrypt(string input)
         {
             input = input.ToUpper();
-            string result = string.Empty;
+            StringBuilder result = new StringBuilder();
             int maxResultLength = (int)Math.Ceiling((double)input.Length / key.Length) * key.Length;
             int columnHeight = (int)Math.Ceiling((double)input.Length / key.Length);
 
@@ -22,23 +23,23 @@ namespace BSK.PS2
                     if (mappedKey[i] + stride >= input.Length)
                     {
                         if (mappedKey[i] + stride < maxResultLength)
-                            result += " ";
+                            result.Append(" ");
                         break;
                     }
                     else
-                        result += input[mappedKey[i] + stride];
+                        result.Append(input[mappedKey[i] + stride]);
                 }
                 if (result.Length >= input.Length)
                     break;
             }
             
-            return result;
+            return result.ToString();
         }
 
         public string Decrypt(string input)
         {
             input = input.ToUpper();
-            string result = string.Empty;
+            StringBuilder result = new StringBuilder();
             int columnHeight = (int)Math.Ceiling((double)input.Length / key.Length);
             char[,] chars = new char[key.Length, columnHeight];
             char[,] decryptChars = new char[key.Length, columnHeight];
@@ -56,9 +57,9 @@ namespace BSK.PS2
 
             for (int i = 0; i < chars.GetLength(1); i++)
                 for (int j = 0; j < chars.GetLength(0); j++)
-                    result += decryptChars[j, i];
+                    result.Append(decryptChars[j, i]);
 
-            return result;
+            return result.ToString();
         }
     }
 }
