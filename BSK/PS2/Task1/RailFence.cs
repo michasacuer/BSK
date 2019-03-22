@@ -6,7 +6,6 @@
 
         public string Encrypt(string input)
         {
-            // makes ZigZag pattern based on "n" and input
             char[,] chars = ZigZagFromString(input);
 
             string result = string.Empty;
@@ -18,13 +17,8 @@
         }
     
         public string Decrypt(string input)
-        {
-            // makes ZigZag pattern based on "n" and input
-            char[,] chars = ZigZagFromString(input);
-
-            // returns decrypted string based on ZigZag and input
-            return ZigZagDecrypt(MapCharsToZigZag(chars, input), input);
-        }
+            => ZigZagDecrypt(MapCharsToZigZag(ZigZagFromString(input), input), input);
+        
 
         private char[,] ZigZagFromString(string input)
         {
